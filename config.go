@@ -13,7 +13,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"gopkg.in/gcfg.v1"
 	"log"
 	"net"
 	"net/url"
@@ -21,6 +20,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	gcfg "gopkg.in/gcfg.v1"
 )
 
 // Configuration definition
@@ -166,7 +167,7 @@ func ValidateConfig(app *ApplicationContext) error {
 		app.Config.General.PIDFile = "burrow.pid"
 	} else {
 		if !validateFilename(app.Config.General.PIDFile) {
-			errs = append(errs, "PID filename is invalid")
+			errs = append(errs, "PID filename "+app.Config.General.PIDFile+" is invalid")
 		}
 	}
 	if app.Config.General.ClientID == "" {
