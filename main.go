@@ -13,13 +13,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	log "github.com/cihub/seelog"
-	"github.com/samuel/go-zookeeper/zk"
 	"os"
 	"os/signal"
 	"runtime"
 	"syscall"
 	"time"
+
+	log "github.com/cihub/seelog"
+	"github.com/samuel/go-zookeeper/zk"
 )
 
 type KafkaCluster struct {
@@ -52,7 +53,7 @@ func burrowMain() int {
 	fmt.Fprintln(os.Stderr, "Reading configuration from", *cfgfile)
 	appContext := &ApplicationContext{Config: ReadConfig(*cfgfile)}
 	if err := ValidateConfig(appContext); err != nil {
-		log.Criticalf("Cannot validate configuration: %v", err)
+		fmt.Fprintln(os.Stderr, "Cannot validate configuration:", err)
 		return 1
 	}
 
