@@ -1,7 +1,5 @@
 FROM golang:alpine
 
-MAINTAINER LinkedIn Burrow "https://github.com/segmentio/Burrow"
-
 RUN apk add --update ca-certificates \
   && update-ca-certificates \
   && rm -rf /var/cache/apk/*
