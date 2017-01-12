@@ -34,7 +34,6 @@ type BurrowConfig struct {
 	General struct {
 		LogDir         string `gcfg:"logdir"`
 		LogConfig      string `gcfg:"logconfig"`
-		PIDFile        string `gcfg:"pidfile"`
 		ClientID       string `gcfg:"client-id"`
 		GroupBlacklist string `gcfg:"group-blacklist"`
 		GroupWhitelist string `gcfg:"group-whitelist"`
@@ -161,13 +160,6 @@ func ValidateConfig(app *ApplicationContext) error {
 	if app.Config.General.LogConfig != "" {
 		if _, err := os.Stat(app.Config.General.LogConfig); os.IsNotExist(err) {
 			errs = append(errs, "Log configuration file does not exist")
-		}
-	}
-	if app.Config.General.PIDFile == "" {
-		app.Config.General.PIDFile = "burrow.pid"
-	} else {
-		if !validateFilename(app.Config.General.PIDFile) {
-			errs = append(errs, "PID filename "+app.Config.General.PIDFile+" is invalid")
 		}
 	}
 	if app.Config.General.ClientID == "" {
