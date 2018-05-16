@@ -4,10 +4,10 @@ RUN apk add --update ca-certificates \
   && update-ca-certificates \
   && rm -rf /var/cache/apk/*
 
-ADD . $GOPATH/src/github.com/segmentio/Burrow
-RUN cd $GOPATH/src/github.com/segmentio/Burrow \
+ADD . $GOPATH/src/github.com/segmentio/burrow
+RUN cd $GOPATH/src/github.com/segmentio/burrow \
   && go install \
-  && mv /go/bin/Burrow /go/bin/burrow
+  && test -f /go/bin/burrow
 
 ADD docker-config /etc/burrow
 WORKDIR /var/tmp/burrow

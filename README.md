@@ -20,8 +20,8 @@ If you have not yet installed the [Go Package Manager](https://github.com/pote/g
 
 ### Build and Install
 ```
-$ go get github.com/segmentio/Burrow
-$ cd $GOPATH/src/github.com/segmentio/Burrow
+$ go get github.com/segmentio/burrow
+$ cd $GOPATH/src/github.com/segmentio/burrow
 $ gpm install
 $ go install
 ```
