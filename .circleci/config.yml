@@ -16,7 +16,7 @@ jobs:
             TAG=`git rev-parse --short HEAD`
             docker build -t segment/burrow:$TAG .
             docker tag segment/burrow:$TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/burrow:$TAG
-            docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+            $(aws ecr get-login --no-include-email --region ${AWS_REGION})
             docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/burrow:$TAG
       - store_artifacts:
           path: .run
