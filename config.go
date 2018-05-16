@@ -72,8 +72,8 @@ type BurrowConfig struct {
 		StormGroupRefresh int64 `gcfg:"storm-group-refresh"`
 	}
 	Httpserver struct {
-		Enable bool `gcfg:"server"`
-		Port   int  `gcfg:"port"`
+		Enable bool     `gcfg:"server"`
+		Port   int      `gcfg:"port"`
 		Listen []string `gcfg:"listen"`
 	}
 	Notify struct {
@@ -95,20 +95,20 @@ type BurrowConfig struct {
 		Threshold int      `gcfg:"threshold"`
 	}
 	Httpnotifier struct {
-		Enable         bool     `gcfg:"enable"`
-		Groups         []string `gcfg:"group"`
-		UrlOpen        string   `gcfg:"url"`
-		UrlClose       string   `gcfg:"url-delete"`
-		MethodOpen     string   `gcfg:"method"`
-		MethodClose    string   `gcfg:"method-delete"`
-		Interval       int64    `gcfg:"interval"`
-		Extras         []string `gcfg:"extra"`
-		TemplateOpen   string   `gcfg:"template-post"`
-		TemplateClose  string   `gcfg:"template-delete"`
-		SendClose      bool     `gcfg:"send-delete"`
-		PostThreshold  int      `gcfg:"post-threshold"`
-		Timeout        int      `gcfg:"timeout"`
-		Keepalive      int      `gcfg:"keepalive"`
+		Enable        bool     `gcfg:"enable"`
+		Groups        []string `gcfg:"group"`
+		UrlOpen       string   `gcfg:"url"`
+		UrlClose      string   `gcfg:"url-delete"`
+		MethodOpen    string   `gcfg:"method"`
+		MethodClose   string   `gcfg:"method-delete"`
+		Interval      int64    `gcfg:"interval"`
+		Extras        []string `gcfg:"extra"`
+		TemplateOpen  string   `gcfg:"template-post"`
+		TemplateClose string   `gcfg:"template-delete"`
+		SendClose     bool     `gcfg:"send-delete"`
+		PostThreshold int      `gcfg:"post-threshold"`
+		Timeout       int      `gcfg:"timeout"`
+		Keepalive     int      `gcfg:"keepalive"`
 	}
 	Slacknotifier struct {
 		Enable    bool     `gcfg:"enable"`

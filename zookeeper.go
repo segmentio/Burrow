@@ -12,8 +12,8 @@ package main
 
 import (
 	log "github.com/cihub/seelog"
-	"github.com/segmentio/Burrow/protocol"
 	"github.com/samuel/go-zookeeper/zk"
+	"github.com/segmentio/Burrow/protocol"
 	"math/rand"
 	"strconv"
 	"sync"

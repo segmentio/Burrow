@@ -14,8 +14,8 @@ import (
 	"encoding/json"
 	"errors"
 	log "github.com/cihub/seelog"
-	"github.com/segmentio/Burrow/protocol"
 	"github.com/samuel/go-zookeeper/zk"
+	"github.com/segmentio/Burrow/protocol"
 	"math/rand"
 	"regexp"
 	"strconv"
@@ -179,7 +179,6 @@ func (stormClient *StormClient) refreshConsumerGroups() {
 	for consumerGroup := range stormClient.stormGroupList {
 		stormClient.stormGroupList[consumerGroup] = false
 	}
-
 
 	for _, stormZookeeperPath := range stormClient.app.Config.Storm[stormClient.cluster].ZookeeperPath {
 		consumerGroups, _, err := stormClient.conn.Children(stormZookeeperPath)

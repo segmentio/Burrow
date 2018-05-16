@@ -228,9 +228,9 @@ func NewHttpNotifier(app *ApplicationContext) (*notifier.HttpNotifier, error) {
 			Method:       httpConfig.MethodClose,
 			TemplateFile: httpConfig.TemplateClose,
 		},
-		Threshold:          httpConfig.PostThreshold,
-		SendClose:          httpConfig.SendClose,
-		Extras:             extras,
+		Threshold: httpConfig.PostThreshold,
+		SendClose: httpConfig.SendClose,
+		Extras:    extras,
 		HttpClient: &http.Client{
 			Timeout: time.Duration(httpConfig.Timeout) * time.Second,
 			Transport: &http.Transport{
