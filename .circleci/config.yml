@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: /go/src/github.com/segmentio/burrow
     docker:
-      - image: circleci/golang
+      - image: segment/circleci-golang:1.9
     steps:
       - checkout
       - run: go get -v -t ./...
