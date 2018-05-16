@@ -105,6 +105,12 @@
 			"revisionTime": "2016-10-28T23:23:40Z"
 		},
 		{
+			"checksumSHA1": "IQTHWWleTZxx3Sp2R5hN6D0pGbE=",
+			"path": "github.com/segmentio/burrow/protocol",
+			"revision": "8289e808b21fbaec0366e589c83e97483223c715",
+			"revisionTime": "2018-05-16T18:05:34Z"
+		},
+		{
 			"checksumSHA1": "7E+wlsgFE3g4oZj0e3y7YPCjfbs=",
 			"path": "gopkg.in/gcfg.v1",
 			"revision": "27e4946190b4a327b539185f2b5b1f7c84730728",
@@ -135,5 +141,5 @@
 			"revisionTime": "2016-08-15T18:11:09Z"
 		}
 	],
-	"rootPath": "github.com/segmentio/Burrow"
+	"rootPath": "github.com/segmentio/burrow"
 }

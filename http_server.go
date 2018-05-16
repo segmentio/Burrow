@@ -13,7 +13,7 @@ package main
 import (
 	"encoding/json"
 	log "github.com/cihub/seelog"
-	"github.com/segmentio/Burrow/protocol"
+	"github.com/segmentio/burrow/protocol"
 	"io"
 	"net"
 	"net/http"

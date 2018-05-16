@@ -12,7 +12,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/segmentio/Burrow/protocol"
+	"github.com/segmentio/burrow/protocol"
 )
 
 func printConsumerGroupStatus(status *protocol.ConsumerGroupStatus) {

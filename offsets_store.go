@@ -14,7 +14,7 @@ import (
 	"container/ring"
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/segmentio/Burrow/protocol"
+	"github.com/segmentio/burrow/protocol"
 	"regexp"
 	"sync"
 	"time"

@@ -13,14 +13,15 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	log "github.com/cihub/seelog"
-	"github.com/samuel/go-zookeeper/zk"
-	"github.com/segmentio/Burrow/protocol"
 	"math/rand"
 	"regexp"
 	"strconv"
 	"sync"
 	"time"
+
+	log "github.com/cihub/seelog"
+	"github.com/samuel/go-zookeeper/zk"
+	"github.com/segmentio/burrow/protocol"
 )
 
 type StormClient struct {

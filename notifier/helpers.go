@@ -12,7 +12,8 @@ package notifier
 
 import (
 	"encoding/json"
-	"github.com/segmentio/Burrow/protocol"
+
+	"github.com/segmentio/burrow/protocol"
 )
 
 // Helper function for the templates to encode an object into a JSON string
