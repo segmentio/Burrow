@@ -1,0 +1,64 @@
+version: 2
+jobs:
+  build:
+    working_directory: /go/src/github.com/segmentio/Burrow
+
+    docker:
+      - image: golang
+        environment:
+          ECR_ENABLED: True
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: deps-{{ checksum "Gopkg.lock" }}
+
+      - run:
+          name: Configure netrc
+          command: |
+            echo "machine github.com login $GH_LOGIN" > ~/.netrc
+      - setup_remote_docker:
+          reusable: true
+      - run:
+          name: Install docker engine
+          command: |
+            curl -L -o /tmp/docker.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.12.6.tgz
+            tar -xz -C /tmp -f /tmp/docker.tgz
+            mv /tmp/docker/docker* /usr/bin/
+            curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+            chmod +x  /usr/bin/docker-compose
+            docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: ECR Login
+          command: |
+            curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py
+            pip install awscli==1.11.76
+            $(aws ecr get-login --region $AWS_REGION)
+      - run:
+          name: Dependencies
+          command: |
+            go get -u github.com/golang/dep/cmd/dep
+            dep ensure
+      - run:
+          name: Test
+          command: |
+            go test -v -cover -race ./...
+      - save_cache:
+          key: deps-{{ checksum "Gopkg.lock" }}
+          paths:
+            - vendor/
+      - run:
+          name: Build
+          command: |
+            TAG=`git rev-parse --short HEAD`
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/burrow:$TAG .
+            $(aws ecr get-login --region $AWS_REGION)
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/burrow:$TAG
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build:
+          context: snyk

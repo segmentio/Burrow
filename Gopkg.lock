@@ -184,6 +184,25 @@
   revision = "c4fab1ac1bec58281ad0667dc3f0907a9476ac47"
 
 [[projects]]
+  branch = "svls/merge-upstream"
+  digest = "1:5fb56db750e3bc11dba4e85a25b635febe4e45561a1207dc5e1939b72ea5cb53"
+  name = "github.com/segmentio/Burrow"
+  packages = [
+    "core",
+    "core/internal/cluster",
+    "core/internal/consumer",
+    "core/internal/evaluator",
+    "core/internal/helpers",
+    "core/internal/httpserver",
+    "core/internal/notifier",
+    "core/internal/storage",
+    "core/internal/zookeeper",
+    "core/protocol",
+  ]
+  pruneopts = ""
+  revision = "4bcc59685398b70ce368f837479dda71ba28a4f9"
+
+[[projects]]
   digest = "1:32c5802989a96ee74cc4e8372efce3cab9cf6355132ad8e80cc32c18757ccd47"
   name = "github.com/spf13/afero"
   packages = [
@@ -352,6 +371,16 @@
     "github.com/karrick/goswarm",
     "github.com/pborman/uuid",
     "github.com/samuel/go-zookeeper/zk",
+    "github.com/segmentio/Burrow/core",
+    "github.com/segmentio/Burrow/core/internal/cluster",
+    "github.com/segmentio/Burrow/core/internal/consumer",
+    "github.com/segmentio/Burrow/core/internal/evaluator",
+    "github.com/segmentio/Burrow/core/internal/helpers",
+    "github.com/segmentio/Burrow/core/internal/httpserver",
+    "github.com/segmentio/Burrow/core/internal/notifier",
+    "github.com/segmentio/Burrow/core/internal/storage",
+    "github.com/segmentio/Burrow/core/internal/zookeeper",
+    "github.com/segmentio/Burrow/core/protocol",
     "github.com/spf13/viper",
     "github.com/stretchr/testify/assert",
     "github.com/stretchr/testify/mock",
